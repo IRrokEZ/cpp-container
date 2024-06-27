@@ -6,8 +6,7 @@ using namespace std;
 
 int main()
 {
-
- 	Container<string> s1{ "hello","world" };
+	Container<string> s1{ "hello","world" };
 	cout << "Container S1: " << endl << s1 << endl;
 	Container<string> s2;
 	s1[0] = "Hi";
@@ -38,7 +37,7 @@ int main()
 	cout << "Container B: " << endl << b << endl;
 	cout << "Container A: " << endl << a << endl;
 	cout << "Container D: " << endl << d << endl;
-	cout << "Container E: " << endl << e << endl;
+	cout << "Container E: " << endl << e << endl; 
  
 	return 0;
 }
