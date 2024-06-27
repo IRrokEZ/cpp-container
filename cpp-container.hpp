@@ -154,10 +154,9 @@ private:
 	size_t size_{ 0 };
 
 	T* CopyFromSource(const T* source, const size_t source_size) {
+		UpdateCapacity(source_size);
 		T* destination = new T[capacity_];
-		for (size_t index{ 0 }; index < source_size; ++index) {
-			destination[index] = source[index];
-		}
+		std::copy(source, source + source_size, destination);
 		return destination;
 	}
 	T* CopyFromSource(const std::initializer_list<T>& list) {
@@ -173,9 +172,7 @@ private:
 	T* CopyFromSource(const size_t size, const T& with = {}) {
 		UpdateCapacity(size);
 		T* destination = new T[capacity_];
-		for (size_t index {0}; index < size; ++index) {
-			destination[index] = with;
-		}
+		std::fill(destination, destination + size, with);
 		return destination;
 	}
 	T* Initialize(const size_t init_size) {
