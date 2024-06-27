@@ -205,7 +205,8 @@ private:
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const Container<T>& right) {
 	using std::literals::string_literals::operator""s;
-	size_t size = right.Size();
+	size_t size = right.Size(); 
+	os << "--------------------------------"s << '\n';
 	os << "Size: "s << size << '\n';
 	if (size == 0) {
 		os << "Container is empty\n"s;
@@ -214,8 +215,8 @@ std::ostream& operator<<(std::ostream& os, const Container<T>& right) {
 	}
 	os << "--------------------------------"s << '\n';
 	for (size_t index{ 0 }; index < size; ++index) {
-		os << '<' << (index+1) << "> "s << right.At(index) << '\n';
+		os << '[' << (index + 1) << "] "s << right.At(index) << '\n';
 	}
-	os << "--------------------------------" << '\n';
+	os << "--------------------------------" << '\n'; 
 	return os;
 }

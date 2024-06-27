@@ -5,7 +5,15 @@
 int main()
 {
 	using std::cout, std::endl, std::literals::string_literals::operator""s, std::string;
+
+	Container<Container<string>> ss = {
+		{"one"s,"two"s,"three"s},
+		{"hello"s,"bro"s}
+	};
 	Container<string> s1{ "hello","world" };
+	cout << "Container SS: " << '\n' << ss << endl;
+
+	/* Container<string> s1{ "hello","world" };
 	cout << "Container S1: " << '\n' << s1 << '\n';
 	Container<string> s2;
 	s1[0] = "Hi";
@@ -36,7 +44,7 @@ int main()
 	cout << "Container B: " << '\n' << b << '\n';
 	cout << "Container A: " << '\n' << a << '\n';
 	cout << "Container D: " << '\n' << d << '\n';
-	cout << "Container E: " << '\n' << e << endl; 
+	cout << "Container E: " << '\n' << e << endl;  */
  
 	return 0;
 }
