@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 
-using std::literals::string_literals::operator""s;
-
 template <typename T>
 class Container {
 public:
@@ -206,6 +204,7 @@ private:
 
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const Container<T>& right) {
+	using std::literals::string_literals::operator""s;
 	size_t size = right.Size();
 	os << "Size: "s << size << std::endl;
 	os << "--------------------------------"s << std::endl;
