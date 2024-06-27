@@ -28,12 +28,21 @@ public:
 		Clear();
 	}
 	Container& operator=(const Container& right) {
-		Clear();
+ 		Clear();
 		Initialize(right.size_);
 		CopyData(data_, right.data_, right.size_);
 		resize_count_ = right.resize_count_;
 		capacity_ = right.capacity_;
+		return *this; 
 		return *this;
+	}
+	const T& At(const size_t index) {
+		if (index < size_) {
+			return data_[index];
+		}
+		else {
+			throw std::out_of_range("Out of range");
+		}
 	}
 	T& operator[](const size_t index) {
 		if (index < size_) {
