@@ -206,11 +206,11 @@ template <typename T>
 std::ostream& operator<<(std::ostream& os, const Container<T>& right) {
 	using std::literals::string_literals::operator""s;
 	size_t size = right.Size();
-	os << "Size: "s << size << std::endl;
-	os << "--------------------------------"s << std::endl;
+	os << "Size: "s << size << '\n';
+	os << "--------------------------------"s << '\n';
 	for (size_t index{ 0 }; index < size; ++index) {
-		os << '<' << (index+1) << "> "s << right.At(index) << std::endl;
+		os << '<' << (index+1) << "> "s << right.At(index) << '\n';
 	}
-	os << "--------------------------------" << std::endl;
+	os << "--------------------------------" << '\n';
 	return os;
 }

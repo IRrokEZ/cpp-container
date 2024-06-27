@@ -2,28 +2,27 @@
 #include <string>
 #include "cpp-container.hpp"
 
-using namespace std;
-
 int main()
 {
+	using std::cout, std::endl, std::literals::string_literals::operator""s, std::string;
 	Container<string> s1{ "hello","world" };
-	cout << "Container S1: " << endl << s1 << endl;
+	cout << "Container S1: " << '\n' << s1 << '\n';
 	Container<string> s2;
 	s1[0] = "Hi";
-	cout << "Container S1: " << endl << s1 << endl;
-	cout << "Container S2: " << endl << s2 << endl;
+	cout << "Container S1: " << '\n' << s1 << '\n';
+	cout << "Container S2: " << '\n' << s2 << '\n';
 	Container<string> s3 = { "one","two","three" };
-	cout << "Container S3: " << endl << s3 << endl;
+	cout << "Container S3: " << '\n' << s3 << '\n';
 	s2 = s3;
-	cout << "Container S2: " << endl << s2 << endl;
+	cout << "Container S2: " << '\n' << s2 << '\n';
 	s2.Resize(1);
-	cout << "Container S2: " << endl << s2 << endl;
+	cout << "Container S2: " << '\n' << s2 << '\n';
 	s3 = s1;
-	cout << "Container S3: " << endl << s3 << endl;
+	cout << "Container S3: " << '\n' << s3 << '\n';
 	s3 = {};
-	cout << "Container S3: " << endl << s3 << endl;
+	cout << "Container S3: " << '\n' << s3 << '\n';
 
-	cout << "***********************************************" << endl;
+	cout << "***********************************************" << '\n';
 	
 	Container<int> a{ 1,2,3,4 };
 	Container<int> b;
@@ -34,10 +33,10 @@ int main()
 	b = a;
 	a[0] = 1000;
 
-	cout << "Container B: " << endl << b << endl;
-	cout << "Container A: " << endl << a << endl;
-	cout << "Container D: " << endl << d << endl;
-	cout << "Container E: " << endl << e << endl; 
+	cout << "Container B: " << '\n' << b << '\n';
+	cout << "Container A: " << '\n' << a << '\n';
+	cout << "Container D: " << '\n' << d << '\n';
+	cout << "Container E: " << '\n' << e << endl; 
  
 	return 0;
 }
