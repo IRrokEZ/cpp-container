@@ -207,6 +207,11 @@ std::ostream& operator<<(std::ostream& os, const Container<T>& right) {
 	using std::literals::string_literals::operator""s;
 	size_t size = right.Size();
 	os << "Size: "s << size << '\n';
+	if (size == 0) {
+		os << "Container is empty\n"s;
+		os << "--------------------------------"s << '\n';
+		return os;
+	}
 	os << "--------------------------------"s << '\n';
 	for (size_t index{ 0 }; index < size; ++index) {
 		os << '<' << (index+1) << "> "s << right.At(index) << '\n';
