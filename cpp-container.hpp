@@ -1,4 +1,8 @@
 ﻿#pragma once
+#include <iostream>
+#include <string>
+
+using std::literals::string_literals::operator""s;
 
 template <typename T>
 class Container {
@@ -36,14 +40,6 @@ public:
 		return *this; 
 		return *this;
 	}
-	const T& At(const size_t index) {
-		if (index < size_) {
-			return data_[index];
-		}
-		else {
-			throw std::out_of_range("Out of range");
-		}
-	}
 	T& operator[](const size_t index) {
 		if (index < size_) {
 			return data_[index];
@@ -52,7 +48,15 @@ public:
 			throw std::out_of_range("Out of range");
 		}
 	}
-	size_t Size() {
+	const T& At(const size_t index) const {
+		if (index < size_) {
+			return data_[index];
+		}
+		else {
+			throw std::out_of_range("Out of range");
+		}
+	}	
+	size_t Size() const{
 		return size_;
 	}
 	void PushBack(const T& item) {
@@ -124,3 +128,14 @@ private:
 	}
 };
 
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const Container<T>& right) {
+	size_t size = right.Size();
+	os << "Size: "s << size << std::endl;
+	os << "--------------------------------"s << std::endl;
+	for (size_t index{ 0 }; index < size; ++index) {
+		os << '<' << (index+1) << "> "s << right.At(index) << std::endl;
+	}
+	os << "--------------------------------" << std::endl;
+	return os;
+}
